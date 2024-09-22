@@ -8,6 +8,7 @@ export const Book = z
     name: z.string().min(1),
   })
   .brand('Book')
+export type Book = z.infer<typeof Book>
 
 export const createFakeBook = () => {
   const cover = faker.image.url()

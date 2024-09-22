@@ -8,6 +8,7 @@ export const Shelf = z
     books: z.array(Book),
   })
   .brand('Shelf')
+export type Shelf = z.infer<typeof Shelf>
 
 export const createFakeShelf = () => {
   const books = Array.from(
