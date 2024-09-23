@@ -12,9 +12,9 @@ const props = defineProps<{
       <h2 class="category">{{ s.category }}</h2>
       <ul class="cover-list">
         <li v-for="b in s.books" :key="b.id">
-          <a :href="'/' + b.id" :title="b.name">
+          <NuxtLink :href="'/' + b.id" :title="b.name">
             <img class="cover" :src="b.cover" :alt="b.name" />
-          </a>
+          </NuxtLink>
         </li>
       </ul>
     </li>

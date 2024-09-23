@@ -12,7 +12,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <a class="nav" href="/">書籍詳細</a>
+  <NuxtLink class="nav" href="/">書籍詳細</NuxtLink>
   <section class="section">
     <BookInformation v-bind="props" />
     <BookActions />
