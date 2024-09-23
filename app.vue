@@ -1,6 +1,4 @@
-<script setup>
-const bad_var = 9
-</script>
+<script setup></script>
 
 <template>
   <div>

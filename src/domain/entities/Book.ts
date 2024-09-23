@@ -11,7 +11,10 @@ export const Book = z
 export type Book = z.infer<typeof Book>
 
 export const createFakeBook = () => {
-  const cover = faker.image.url()
+  const cover = faker.image.url({
+    height: faker.number.int({ min: 200, max: 400 }),
+    width: 200,
+  })
   const name = faker.lorem.sentence(3)
   const id = name.toLowerCase().replaceAll(' ', '-')
 

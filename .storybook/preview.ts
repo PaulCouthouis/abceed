@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/vue3'
 
+import '../reset.css'
+
 const preview: Preview = {
   parameters: {
     controls: {
