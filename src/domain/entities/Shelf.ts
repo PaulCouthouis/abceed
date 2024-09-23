@@ -12,7 +12,7 @@ export type Shelf = z.infer<typeof Shelf>
 
 export const createFakeShelf = () => {
   const books = Array.from(
-    { length: faker.number.int({ min: 1, max: 9 }) },
+    { length: faker.number.int({ min: 3, max: 9 }) },
     createFakeBook
   )
   const category = faker.lorem.word()

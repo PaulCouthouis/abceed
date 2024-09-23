@@ -11,7 +11,7 @@ export type Bookcase = z.infer<typeof Bookcase>
 
 export const createFakeBookcase = () => {
   const shelf = Array.from(
-    { length: faker.number.int({ min: 1, max: 9 }) },
+    { length: faker.number.int({ min: 3, max: 9 }) },
     createFakeShelf
   )
 
