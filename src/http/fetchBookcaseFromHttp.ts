@@ -17,9 +17,11 @@ export const fetchBookcaseFromHttp: FetchBookcasePort = async () => {
 }
 
 type BookFromHttp = {
+  author: string
   id_book: string
   img_url: string
   name_book: string
+  publisher: string
 }
 
 type ShelfFromHttp = {
@@ -44,11 +46,13 @@ function convertToShelf(allBooks: ShelfFromHttp): readonly Shelf[] {
 }
 
 function convertToBooks(book_list: readonly BookFromHttp[]): readonly Book[] {
-  return book_list.map(({ id_book, img_url, name_book }) => {
+  return book_list.map(({ author, id_book, img_url, name_book, publisher }) => {
     return Book.parse({
+      author,
       cover: img_url,
       id: id_book,
       name: name_book,
+      publisher,
     })
   })
 }
