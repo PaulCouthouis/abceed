@@ -1,7 +1,7 @@
-import { Book } from '@/domain/entities/Book'
-import { Bookcase } from '@/domain/entities/Bookcase'
-import { Shelf } from '@/domain/entities/Shelf'
-import type { FetchBookcasePort } from '@/domain/usecases/RetrieveBookcase'
+import { Book } from '../domain/entities/Book'
+import { Bookcase } from '../domain/entities/Bookcase'
+import { Shelf } from '../domain/entities/Shelf'
+import type { FetchBookcasePort } from '../domain/usecases/RetrieveBookcase'
 
 export const fetchBookcaseFromHttp: FetchBookcasePort = async () => {
   const response = await fetch('https://dev-app-api.abceed.com/mock/book/all')

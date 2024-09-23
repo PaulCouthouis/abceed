@@ -25,6 +25,7 @@ const props = defineProps<{
 .bookcase {
   display: grid;
   gap: 75px;
+  padding: 30px;
 }
 
 .shelf {

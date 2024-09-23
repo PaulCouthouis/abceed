@@ -1,8 +1,7 @@
-<script setup></script>
+<script setup>
+import './reset.css'
+</script>
 
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  <NuxtPage />
 </template>

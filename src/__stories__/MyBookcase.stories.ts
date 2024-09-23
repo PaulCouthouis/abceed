@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import MyBookcase from '../../src/components/MyBookcase.vue'
+import MyBookcase from '../../components/MyBookcase.vue'
 import { createFakeBookcase } from '../domain/entities/Bookcase'
 
 type MyBookcaseMeta = Meta<typeof MyBookcase>
