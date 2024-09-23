@@ -79,7 +79,16 @@ html {
   font-family: sans-serif;
 }
 
+body {
+  line-height: 1;
+}
+
 ul {
   list-style: none;
   padding: 0;
+}
+
+button {
+  background: none;
+  border: none;
 }
