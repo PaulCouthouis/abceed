@@ -31,13 +31,14 @@ const props = defineProps<{
 
 <style scoped>
 .main {
+  background: white;
   display: flex;
   gap: 10px;
   padding: 20px;
 }
 
 .cover {
-  height: auto;
+  height: fit-content;
   width: 90px;
 }
 
@@ -76,12 +77,12 @@ const props = defineProps<{
 }
 
 .plain {
-  border: 1px solid red;
-  color: red;
+  border: 1px solid #ff223c;
+  color: #ff223c;
 }
 
 .fancy {
-  background: red;
+  background: #ff223c;
   color: white;
 }
 
@@ -99,7 +100,13 @@ const props = defineProps<{
     background: #555;
   }
 
+  .plain {
+    border: 1px solid #fc6767;
+    color: #fc6767;
+  }
+
   .fancy {
+    background: #fc6767;
     color: #333;
   }
 }

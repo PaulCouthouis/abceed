@@ -12,13 +12,11 @@
 
 <style scoped>
 .list {
-  background: #eee;
   display: flex;
   flex-wrap: wrap;
 
   gap: 35px;
   padding: 20px 32px;
-  max-width: 450px;
 }
 
 .square {
@@ -74,10 +72,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .list {
-    background: #444;
-  }
-
   .square {
     background: #222;
     border: 1px solid #777;
@@ -110,6 +104,12 @@
 
   .vocab::before {
     background: url('~/assets/icon/dark/icon_study_vocab.svg');
+  }
+}
+
+@media (min-width: 768px) {
+  .list {
+    max-width: 450px;
   }
 }
 </style>
