@@ -1,75 +1,49 @@
-# Nuxt 3 Minimal Starter
+# Globee向けのAbceedプロジェクト
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+## コマンド
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+pnpm dev
+pnpm test
+pnpm storybook
 ```
 
-## Development Server
+## 開発方法
 
-Start the development server on `http://localhost:3000`:
+ロジック部分はすべてTDDで開発しました。
+最初にStorybookを使って純粋なコンポーネントをデザインし、それをロジック部分と接続しました。
+コミットごとにアプリケーションの構築手順を確認できます。
 
-```bash
-# npm
-npm run dev
+## プロジェクトのアーキテクチャ
 
-# pnpm
-pnpm run dev
+Port & Adapterパターンを使用して、次の2つのユースケースを含むミニヘキサゴナルアーキテクチャを実装しました：
 
-# yarn
-yarn dev
+- 書籍一覧の取得
+- 書籍情報の読み取り
 
-# bun
-bun run dev
-```
+`src/domain`には、エンティティとユースケースサービスを含むビジネスロジックがあります。
 
-## Production
+書籍一覧を取得するユースケースをインスタンス化するために、APIをフェッチするアダプタが`src/http`ディレクトリにあります。
 
-Build the application for production:
+書籍の追加・削除にはPiniaを使用しました。
 
-```bash
-# npm
-npm run build
+最後に、ユースケースやストアを使用するコンポーネントとコンポーザブルを実装しました。
 
-# pnpm
-pnpm run build
+## テスト
 
-# yarn
-yarn build
+TDDを使用しているため、すべてのロジックは100%テストでカバーされています。
 
-# bun
-bun run build
-```
+MSWを使用して、実際のAPI呼び出しより、早くてHTTPアダプタのテストを行っています。
 
-Locally preview production build:
+また、実際のAPIを呼び出す統合テストもあります。このテストの目的はアダプタのロジックをテストすることではなく、APIがフロントエンドとの契約を引き続き従うことを確認することです。
 
-```bash
-# npm
-npm run preview
+コンポーネントに関しては、Storybookが十分であると考え、テストツールは使用していません。
 
-# pnpm
-pnpm run preview
+## 改善の余地
 
-# yarn
-yarn preview
+Nuxt / Vueでの初めてのプロジェクトなので、SSRやキャッシュの最適化については確信がありません。APIデータを保存するためにPiniaを使用することもオプションかもしれません。
 
-# bun
-bun run preview
-```
+書籍の数が多い場合、スクロール後に画面に表示される際に画像をレイズィロウディングする可能があります。
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+書籍の追加・削除がサーバー呼び出しで行われる場合、新しいユースケースとアダプタを作成する必要があります。その場合、表示のためにoptimisticかpessimisticの戦略を検討する必要があります。
