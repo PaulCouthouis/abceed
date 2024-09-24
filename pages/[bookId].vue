@@ -4,11 +4,5 @@ const book = useBook(route.params.bookId as string)
 </script>
 
 <template>
-  <BookView
-    v-if="book"
-    :author="book.author"
-    :cover="book.cover"
-    :name="book.name"
-    :publisher="book.publisher"
-  />
+  <BookView v-if="book" v-bind="book" />
 </template>

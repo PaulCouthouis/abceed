@@ -3,7 +3,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import type { Book } from '~/src/domain/entities/Book'
-import { useMyBooksStore } from '~/stores/useMyBooksStore'
+import { useMyBooksStore } from '~/src/stores/useMyBooksStore'
 
 describe('My books store', () => {
   beforeEach(() => {

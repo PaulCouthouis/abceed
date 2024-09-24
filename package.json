@@ -13,6 +13,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@nuxt/image": "^1.8.0",
     "@pinia/nuxt": "^0.5.4",
     "nuxt": "^3.13.0",
     "vue": "latest",
@@ -40,6 +41,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "happy-dom": "^15.7.4",
     "msw": "^2.4.9",
+    "pinia": "^2.2.2",
     "prettier": "^3.3.3",
     "storybook": "^8.3.2",
     "storybook-addon-nuxt": "^1.3.3",

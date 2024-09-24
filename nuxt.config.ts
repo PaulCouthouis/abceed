@@ -11,8 +11,10 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ['@nuxt/eslint', '@nuxt/test-utils/module', '@pinia/nuxt'],
-  pinia: {
-    storesDirs: ['./stores/**'],
-  },
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/test-utils/module',
+    '@pinia/nuxt',
+    '@nuxt/image',
+  ],
 })

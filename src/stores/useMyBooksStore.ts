@@ -1,4 +1,6 @@
 import type { Book } from '~/src/domain/entities/Book'
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
 export const useMyBooksStore = defineStore('my-books', () => {
   const collection = ref(new Set<Book['id']>())

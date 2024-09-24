@@ -6,20 +6,28 @@ import BookActions from './BookActions.vue'
 const props = defineProps<{
   author: Book['author']
   cover: Book['cover']
+  id: Book['id']
   name: Book['name']
   publisher: Book['publisher']
 }>()
 </script>
 
 <template>
-  <NuxtLink class="nav" href="/">書籍詳細</NuxtLink>
-  <section class="section">
-    <BookInformation v-bind="props" />
-    <BookActions />
-  </section>
+  <div class="full">
+    <NuxtLink class="nav" href="/">書籍詳細</NuxtLink>
+    <section class="section">
+      <BookInformation v-bind="props" />
+      <BookActions />
+    </section>
+  </div>
 </template>
 
 <style scoped>
+.full {
+  min-height: 100vh;
+  background: #eee;
+}
+
 .nav {
   background: white;
   display: flex;
@@ -43,6 +51,10 @@ const props = defineProps<{
 }
 
 @media (prefers-color-scheme: dark) {
+  .full {
+    background: #444;
+  }
+
   .nav {
     background: #333;
     color: white;

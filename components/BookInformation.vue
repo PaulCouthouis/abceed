@@ -1,17 +1,26 @@
 <script setup lang="ts">
 import type { Book } from '~/src/domain/entities/Book'
+import { useMyBooksStore } from '../src/stores/useMyBooksStore'
 
 const props = defineProps<{
   author: Book['author']
   cover: Book['cover']
+  id: Book['id']
   name: Book['name']
   publisher: Book['publisher']
 }>()
+
+const store = useMyBooksStore()
+const isInCollection = store.has(props.id)
+
+const handleClick = () => {
+  store.toggle(props.id)
+}
 </script>
 
 <template>
   <main class="main">
-    <img class="cover" :src="props.cover" alt="" />
+    <div><img class="cover" :src="props.cover" alt="" /></div>
 
     <div class="right">
       <h2>{{ props.name }}</h2>
@@ -22,7 +31,9 @@ const props = defineProps<{
         <span>{{ props.publisher }}</span>
       </div>
       <div class="action">
-        <button class="button plain">MyBooks追加</button>
+        <button class="button plain" @click="handleClick">
+          {{ isInCollection ? 'MyBooks削除' : 'MyBooks追加' }}
+        </button>
         <button class="button fancy">読み放題中</button>
       </div>
     </div>
@@ -38,8 +49,9 @@ const props = defineProps<{
 }
 
 .cover {
-  height: fit-content;
-  width: 90px;
+  height: auto;
+  min-width: 90px;
+  max-width: 90px;
 }
 
 .right {
@@ -71,6 +83,7 @@ const props = defineProps<{
 
 .button {
   border-radius: 4px;
+  cursor: pointer;
   font-size: 12px;
   height: 30px;
   width: 50%;
